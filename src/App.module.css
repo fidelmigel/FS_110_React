@@ -9,6 +9,7 @@
   background-color: black;
   box-shadow: 0 0 5px 5px red;
 }
+
 .box2{
   composes: box;
   color:gold;

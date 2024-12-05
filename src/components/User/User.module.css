@@ -4,6 +4,11 @@
 :root{
   --font-xxl: 3rem;
 }
+.iconUser{
+  width: 25px;
+  height: 25px;
+  color: gold;
+}
 .card{
   box-shadow: 2px 2px 6px 6px lightgray;
   padding: 10px;
@@ -11,7 +16,6 @@
   flex-direction: column;
   gap:5px;
   @media  (min-width: 768px){
-  background-color: lightgray;
   font-size: 0.8rem;
   }
   & button{

@@ -1,11 +1,12 @@
 import clsx from 'clsx';
+import { FaUser } from 'react-icons/fa';
 import styles from './User.module.css';
 const User = ({ name, email, bio = 'This user hide own bio', isOpenToWork }) => {
-  console.log(styles);
-
   return (
     <div className={styles.card}>
-      <h3 className={styles.title}>{name}</h3>
+      <h3 className={styles.title}>
+        {name} <FaUser className={styles.iconUser} />
+      </h3>
       <p>{email}</p>
       <p>{bio}</p>
       {/* <p className={`${styles.status} ${isOpenToWork ? styles.green : styles.red}`}>{isOpenToWork ? 'хоче працювати' : 'не шукає роботу'}</p> */}
