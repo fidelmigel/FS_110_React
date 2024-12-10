@@ -5,10 +5,10 @@ import { TodoList } from './TodoList/TodoList';
 const App = () => {
   return (
     <div>
-      <h1>State</h1>
+      {/* <h1>State</h1> */}
       <Counter />
-      <ColorPicker />
-      <TodoList />
+      {/* <ColorPicker /> */}
+      {/* <TodoList /> */}
     </div>
   );
 };
