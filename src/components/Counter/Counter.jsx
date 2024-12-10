@@ -1,23 +1,35 @@
+import { useState } from 'react';
 import s from './Counter.module.css';
 
 export const Counter = () => {
-  const handleClickPlus = e => {
-    console.log('Plus click');
-    console.log(e);
+  // RULES
+  // 1. Можна створювати хуки тільки всередині функціональних компонентах
+  // 2. НЕ Можна оголосити хук всередині умов
+  // 3. НЕ Можна оголосити хук всередині циклів
+
+  const [counter, setCounter] = useState(0);
+
+  const handleClickPlus = () => {
+    setCounter(counter + 1);
   };
-  const handleReset = name => {
-    console.log(`Hello ${name}`);
+
+  const handleClickMinus = () => {
+    setCounter(counter - 1);
+  };
+
+  const handleReset = () => {
+    setCounter(0);
   };
 
   return (
     <div className={s.flexContainer}>
       <div className={s.wrapper}>
-        <h1>{1}</h1>
+        <h1>{counter}</h1>
         <div className={s.flex}>
-          <button onClick={() => console.log('Hello')} className='btn'>
+          <button onClick={handleClickMinus} className='btn'>
             minus
           </button>
-          <button onClick={() => handleReset('Oleh')} className='btn'>
+          <button onClick={handleReset} className='btn'>
             reset
           </button>
           <button onClick={handleClickPlus} className='btn'>
