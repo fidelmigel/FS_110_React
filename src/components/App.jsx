@@ -3,6 +3,7 @@ import { ColorPicker } from './ColorPicker/ColorPicker';
 import { Counter } from './Counter/Counter';
 import Modal from './Modal/Modal';
 import { TodoList } from './TodoList/TodoList';
+import Vote from './Vote/Vote';
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,9 +12,10 @@ const App = () => {
 
   return (
     <div>
-      <TodoList />
-      <input />
-      <button onClick={openModal}>Open modal</button>
+      <Vote />
+      {/* <TodoList /> */}
+      {/* <input /> */}
+      {/* <button onClick={openModal}>Open modal</button> */}
       {isOpen && (
         <Modal title='Modal' onClose={closeModal}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, porro quod ipsum laboriosam architecto quam in, labore deserunt natus sapiente
