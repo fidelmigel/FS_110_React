@@ -6,9 +6,9 @@ const App = () => {
   return (
     <div>
       {/* <h1>State</h1> */}
-      {/* <Counter /> */}
+      <Counter />
       {/* <ColorPicker /> */}
-      <TodoList />
+      {/* <TodoList /> */}
     </div>
   );
 };
