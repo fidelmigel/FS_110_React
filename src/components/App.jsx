@@ -11,7 +11,7 @@ const App = () => {
 
   return (
     <div>
-      {/* <TodoList /> */}
+      <TodoList />
       <input />
       <button onClick={openModal}>Open modal</button>
       {isOpen && (
