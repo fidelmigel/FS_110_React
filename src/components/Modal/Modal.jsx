@@ -2,13 +2,29 @@ import { useEffect } from 'react';
 import s from './Modal.module.css';
 const Modal = ({ children, title = 'Default modal', onClose }) => {
   useEffect(() => {
-    console.log('Modal is open!');
+    const handleKeyDown = e => {
+      console.log(e.key);
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
 
+    console.log('Modal is open!');
+    const intervalId = setInterval(() => {
+      console.log(new Date().toLocaleTimeString());
+    }, 1000);
+    const timeoutId = setTimeout(() => {
+      console.log('🔥🔥🔥🔥');
+    }, 4000);
     // cleanup fn
     return () => {
       console.log('Пока пока 😉');
+      clearInterval(intervalId);
+      clearTimeout(timeoutId);
+      document.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [onClose]);
 
   const handleBackdropClick = e => {
     if (e.target === e.currentTarget) {

@@ -12,9 +12,10 @@ const App = () => {
   return (
     <div>
       {/* <TodoList /> */}
+      <input />
       <button onClick={openModal}>Open modal</button>
       {isOpen && (
-        <Modal onClose={closeModal}>
+        <Modal title='Modal' onClose={closeModal}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, porro quod ipsum laboriosam architecto quam in, labore deserunt natus sapiente
           ducimus modi aut magni dicta. Necessitatibus placeat velit laudantium maiores.
         </Modal>
