@@ -1,3 +1,4 @@
+import Example from './ExampleUseId/Example';
 import ControlledForm from './Forms/ControlledForm';
 import Form from './Forms/Form';
 
@@ -11,6 +12,8 @@ const App = () => {
     <div>
       <h1>Forms</h1>
       <ControlledForm onRegister={onRegister} />
+      <Example />
+      <Example />
     </div>
   );
 };
