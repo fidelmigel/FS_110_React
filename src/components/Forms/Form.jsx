@@ -1,6 +1,9 @@
-import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import s from './Forms.module.css';
+import CustomField from './CustomField';
+import CustomPassField from './CustomPassField';
+import InputFabric from './InputFabric';
 
 const FormRegister = () => {
   const handleSubmit = (values, actions) => {
@@ -34,21 +37,11 @@ const FormRegister = () => {
         validationSchema={registerSchema}
       >
         <Form className={s.form}>
-          <label className={s.label}>
-            <span>Name:</span>
-            <Field className={s.input} type='text' name='username' />
-            <ErrorMessage name='username' className={s.error} component='div' />
-          </label>
-          <label className={s.label}>
-            <span>Email:</span>
-            <Field className={s.input} type='text' name='email' />
-            <ErrorMessage name='email' className={s.error} component='div' />
-          </label>
-          <label className={s.label}>
-            <span>Password:</span>
-            <Field className={s.input} type='password' name='password' />
-            <ErrorMessage name='password' className={s.error} component='div' />
-          </label>
+          <InputFabric label='Name:' name='username' />
+          <InputFabric label='Email:' name='email' />
+          <InputFabric label='Age:' name='age' type='number' />
+          <InputFabric label='Password:' type='password' name='password' />
+          <InputFabric label='Password:' type='password' name='confirmPassword' />
           <button className={s.button} type='submit'>
             Submit
           </button>

@@ -37,6 +37,18 @@
   font-size: 20px;
 
 }
+.wrapper{
+  display: flex;
+  position: relative;
+}
+.icon{
+  position: absolute;
+  right: 5px;
+  top: 0;
+  background-color: transparent;
+  border: none;
+  bottom: 0;
+}
 .label{
   display: flex;
   flex-direction: column;
