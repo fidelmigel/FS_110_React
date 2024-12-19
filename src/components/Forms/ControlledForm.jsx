@@ -1,78 +1,65 @@
-import { useState } from 'react';
+import { Field, Form, Formik } from 'formik';
 import s from './Forms.module.css';
 
-const INITIAL_STATE = { username: '', email: '', course: '', level: 'junior', details: '', isTermsAccepted: false };
-
 const ControlledForm = ({ onRegister }) => {
-  const [formData, setFormData] = useState(INITIAL_STATE);
-  const handleSubmit = e => {
-    e.preventDefault();
-
-    onRegister(formData);
-    setFormData(INITIAL_STATE); //🔥
+  const handleSubmit = (values, actions) => {
+    onRegister(values);
+    actions.resetForm();
   };
 
-  const handleChangeInput = e => {
-    const { name, value, type } = e.target;
-
-    if (type === 'checkbox') {
-      return setFormData(prev => ({ ...prev, [name]: !prev[name] }));
-    }
-
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
+  const initialValues = { username: '', email: '', course: '', level: 'junior', details: '', isTermsAccepted: false };
   return (
     <div className={s.formWrapper}>
-      <form onSubmit={handleSubmit} className={s.form}>
-        <label className={s.label}>
-          <span>Name:</span>
-          <input className={s.input} type='text' name='username' value={formData.username} onChange={handleChangeInput} />
-        </label>
+      <Formik onSubmit={handleSubmit} initialValues={initialValues}>
+        {({ values }) => (
+          <Form className={s.form}>
+            <label className={s.label}>
+              <span>Name:</span>
+              <Field className={s.input} type='text' name='username' />
+            </label>
 
-        <label className={s.label}>
-          <span>Email:</span>
-          <input className={s.input} type='text' name='email' value={formData.email} onChange={handleChangeInput} />
-        </label>
+            <label className={s.label}>
+              <span>Email:</span>
+              <Field className={s.input} type='text' name='email' />
+            </label>
 
-        <label className={s.label}>
-          <span>Course:</span>
-          <select className={s.input} type='text' name='course' value={formData.course} onChange={handleChangeInput}>
-            <option value='backend'>Backend</option>
-            <option value='frontend'>Frontend</option>
-            <option value='fullstack'>Fullstack</option>
-            <option value='devOps'>DevOps</option>
-          </select>
-        </label>
-        <div>
-          <label>
-            <input type='radio' value='junior' checked={formData.level === 'junior'} name='level' onChange={handleChangeInput} />
-            <span>Junior</span>
-          </label>
-          <label>
-            <input type='radio' value='middle' name='level' onChange={handleChangeInput} checked={formData.level === 'middle'} />
-            <span>Middle</span>
-          </label>
-          <label>
-            <input type='radio' value='senior' name='level' onChange={handleChangeInput} checked={formData.level === 'senior'} />
-            <span>Senior</span>
-          </label>
-        </div>
-        <label className={s.label}>
-          <span>Details:</span>
-          <textarea className={s.input} name='details' value={formData.details} onChange={handleChangeInput} />
-        </label>
-        <label>
-          <input type='checkbox' name='isTermsAccepted' checked={formData.isTermsAccepted} onChange={handleChangeInput} />
-          <span>All terms and rules accepted!</span>
-        </label>
-        <button disabled={!formData.isTermsAccepted} className={s.button} type='submit'>
-          Submit
-        </button>
-      </form>
+            <label className={s.label}>
+              <span>Course:</span>
+              <Field as='select' className={s.input} type='text' name='course'>
+                <option value='backend'>Backend</option>
+                <option value='frontend'>Frontend</option>
+                <option value='fullstack'>Fullstack</option>
+                <option value='devOps'>DevOps</option>
+              </Field>
+            </label>
+            <div>
+              <label>
+                <Field type='radio' value='junior' name='level' />
+                <span>Junior</span>
+              </label>
+              <label>
+                <Field type='radio' value='middle' name='level' />
+                <span>Middle</span>
+              </label>
+              <label>
+                <Field type='radio' value='senior' name='level' />
+                <span>Senior</span>
+              </label>
+            </div>
+            <label className={s.label}>
+              <span>Details:</span>
+              <Field as='textarea' className={s.input} name='details' />
+            </label>
+            <label>
+              <Field type='checkbox' name='isTermsAccepted' />
+              <span>All terms and rules accepted!</span>
+            </label>
+            <button disabled={!values.isTermsAccepted} className={s.button} type='submit'>
+              Submit
+            </button>
+          </Form>
+        )}
+      </Formik>
     </div>
   );
 };
