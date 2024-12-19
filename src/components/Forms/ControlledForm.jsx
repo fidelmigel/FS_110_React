@@ -12,32 +12,6 @@ const ControlledForm = ({ onRegister }) => {
     setFormData(INITIAL_STATE); //🔥
   };
 
-  // ❌ const handleChangeUsername = e => {
-  //   setFormData(prev => {
-  //     return {
-  //       ...prev,
-  //       username: e.target.value,
-  //     };
-  //   });
-  // };
-
-  // const handleChangeEmail = e => {
-  //   setFormData(prev => {
-  //     return {
-  //       ...prev,
-  //       email: e.target.value,
-  //     };
-  //   });
-  // };
-  // const handleChangePassword = e => {
-  //   setFormData(prev => {
-  //     return {
-  //       ...prev,
-  //       password: e.target.value,
-  //     };
-  //   });
-  // };
-
   const handleChangeInput = e => {
     const { name, value, type } = e.target;
 

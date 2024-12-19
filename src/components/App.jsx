@@ -1,4 +1,5 @@
 import ControlledForm from './Forms/ControlledForm';
+import FormRegister from './Forms/Form';
 
 const App = () => {
   const onRegister = data => {
@@ -8,7 +9,8 @@ const App = () => {
   };
   return (
     <div>
-      <h1>Forms</h1>
+      <h1>FORMIK 🚀</h1>
+      <FormRegister />
       <ControlledForm onRegister={onRegister} />
     </div>
   );
