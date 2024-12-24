@@ -4,7 +4,9 @@ const SearchBar = ({ onSearchChanged }) => {
   const [value, setValue] = useState('');
   const handleSubmit = e => {
     e.preventDefault();
+
     onSearchChanged(value);
+
     console.log(value);
   };
   return (

@@ -19,7 +19,7 @@ const App = () => {
       try {
         setIsLoading(true);
         setIsError(false);
-        const { hits } = await fetchArticles(query, page);
+        const { hits } = await fetchArticles({ query, page });
         setArticles(prev => [...prev, ...hits]);
       } catch (error) {
         setIsError(true);
@@ -28,6 +28,7 @@ const App = () => {
         setIsLoading(false);
       }
     };
+
     getArticlesData();
   }, [page, query]);
 
