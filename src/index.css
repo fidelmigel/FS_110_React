@@ -2,8 +2,18 @@ body {
   font-family: sans-serif;
   line-height: 1.5;
 }
+.main{
+  min-height: 100dvh;
+  position: relative;
+}
+.spinner{
+position: absolute;
+z-index: 2;
+transform: translate(50%, 50%);
+top: 50%;
+left: 50%;
 
-
+}
 h1,
 h2,
 h3,
