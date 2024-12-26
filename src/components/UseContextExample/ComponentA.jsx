@@ -1,10 +1,10 @@
 import ComponentB from './ComponentB';
 
-const ComponentA = () => {
+const ComponentA = ({ auto }) => {
   return (
     <div className='first'>
       <h3>First Component</h3>
-      <ComponentB />
+      <ComponentB auto={auto} />
     </div>
   );
 };

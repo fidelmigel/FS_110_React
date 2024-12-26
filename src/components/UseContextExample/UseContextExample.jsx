@@ -1,10 +1,10 @@
 import ComponentA from './ComponentA';
 
-const UseContextExample = () => {
+const UseContextExample = ({ auto }) => {
   return (
     <div className='parent'>
       <h2>useContext Example</h2>
-      <ComponentA />
+      <ComponentA auto={auto} />
     </div>
   );
 };
