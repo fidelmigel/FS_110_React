@@ -1,3 +1,4 @@
+import Header from './Header/Header';
 import UseContextExample from './UseContextExample/UseContextExample';
 import UseMemoExample from './useMemoExample';
 import UseRefForwardRefExample from './UseRefForwardRefExample';
@@ -7,12 +8,14 @@ import UseRefStoreValueExample from './UseRefStoreValueExample';
 const App = () => {
   return (
     <div>
-      <h2>Hooks</h2>
-      <UseMemoExample />
-      <UseRefRenderCountExample />
-      <UseRefStoreValueExample />
-      <UseRefForwardRefExample />
-      <UseContextExample />
+      <Header />
+      <main>
+        <UseMemoExample />
+        {/* <UseRefRenderCountExample /> */}
+        {/* <UseRefStoreValueExample /> */}
+        {/* <UseRefForwardRefExample /> */}
+        {/* <UseContextExample /> */}
+      </main>
     </div>
   );
 };

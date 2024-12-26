@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 function UseMemoExample() {
   const [count, setCount] = useState(0);
@@ -8,11 +8,15 @@ function UseMemoExample() {
   const heavyCompute = num => {
     console.log('heavyCompute called');
     let i = 0;
-    while (i < 1000000000) i++;
-    return num * 2;
+    while (i < 1_000_000_000) i++;
+    return num * num;
   };
 
-  const result = heavyCompute(count);
+  // const result = heavyCompute(count);
+  const result = useMemo(() => {
+    return heavyCompute(count);
+  }, [count]);
+
   const style = {
     color: colored ? 'tomato' : 'black',
   };
