@@ -10,8 +10,8 @@ const App = () => {
     <div>
       <Header />
       <main>
-        <UseMemoExample />
-        {/* <UseRefRenderCountExample /> */}
+        {/* <UseMemoExample /> */}
+        <UseRefRenderCountExample />
         {/* <UseRefStoreValueExample /> */}
         {/* <UseRefForwardRefExample /> */}
         {/* <UseContextExample /> */}
