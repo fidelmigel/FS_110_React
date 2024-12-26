@@ -11,8 +11,8 @@ const App = () => {
       <Header />
       <main>
         {/* <UseMemoExample /> */}
-        <UseRefRenderCountExample />
-        {/* <UseRefStoreValueExample /> */}
+        {/* <UseRefRenderCountExample /> */}
+        <UseRefStoreValueExample />
         {/* <UseRefForwardRefExample /> */}
         {/* <UseContextExample /> */}
       </main>
