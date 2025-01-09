@@ -6,14 +6,11 @@ const UserDetails = () => {
   const { userId } = useParams();
   console.log(userId);
   const [user, setUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
-      setIsLoading(true);
       const user = await fetchUserById(userId);
       setUser(user);
-      setIsLoading(false);
     };
     getData();
   }, [userId]);
@@ -23,7 +20,7 @@ const UserDetails = () => {
   }
 
   return (
-    <div>
+    <div className='container'>
       <h3>User details</h3>
 
       <img src={user.image} />

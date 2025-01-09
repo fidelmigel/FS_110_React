@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-
+import s from './UserList.module.css';
 const UserList = ({ users }) => {
   return (
     <div>
-      <ul>
+      <ul className={s.list}>
         {users.map(item => (
-          <li key={item.id}>
+          <li className={s.item} key={item.id}>
             <Link to={item.id.toString()}>
               {item.firstName} {item.lastName}
             </Link>
