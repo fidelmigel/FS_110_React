@@ -1,30 +1,28 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { Link, Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { fetchUserById } from '../../services/api';
+import { useHttp } from '../../hooks/useHttp';
 
 const UserDetails = () => {
   const { userId } = useParams();
   console.log(userId);
+
+  const [user, setUser, loading, isError] = useHttp(fetchUserById, userId);
 
   const location = useLocation();
 
   const goBackRef = useRef(location.state ?? '/users');
   console.log(location);
 
-  const [user, setUser] = useState(null);
   const navigate = useNavigate();
-  useEffect(() => {
-    const getData = async () => {
-      const user = await fetchUserById(userId);
-      setUser(user);
-    };
-    getData();
-  }, [userId]);
 
-  if (!user) {
+  if (loading) {
     return <h2>Loading...</h2>;
   }
 
+  if (isError) {
+    return <h2>Something went wrong...</h2>;
+  }
   return (
     <div className='container'>
       <h3>User details</h3>
