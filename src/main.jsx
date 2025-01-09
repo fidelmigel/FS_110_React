@@ -4,9 +4,12 @@ import './index.css';
 import 'modern-normalize';
 import { Toaster } from 'react-hot-toast';
 import { BrowserRouter } from 'react-router-dom';
+import { StrictMode } from 'react';
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <App />
-    <Toaster />
-  </BrowserRouter>
+  <StrictMode>
+    <BrowserRouter>
+      <App />
+      <Toaster />
+    </BrowserRouter>
+  </StrictMode>
 );

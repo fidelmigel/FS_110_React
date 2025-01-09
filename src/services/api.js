@@ -3,7 +3,7 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://dummyjson.com';
 
 export const fetchAllUsers = async () => {
-  const { data } = await axios.get('/users');
+  const { data } = await axios.get('/users?limit=200');
   return data.users;
 };
 
@@ -16,6 +16,7 @@ export const fetchPostsByUserId = async userId => {
   const { data } = await axios.get(`/posts/user/${userId}`);
   return data.posts;
 };
+
 export const fetchPostByPostId = async postId => {
   const { data } = await axios.get(`/posts/${postId}`);
   return data;
