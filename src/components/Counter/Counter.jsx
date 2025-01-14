@@ -9,9 +9,15 @@ export const Counter = () => {
   const handlePlusClick = () => {
     dispatch({ type: 'INCREMENT' });
   };
-  const handleMinusClick = () => {};
-  const handleResetClick = () => {};
-  const handleChangeStep = e => {};
+  const handleMinusClick = () => {
+    dispatch({ type: 'DECREMENT' });
+  };
+  const handleResetClick = () => {
+    dispatch({ type: 'RESET' });
+  };
+  const handleChangeStep = e => {
+    dispatch({ type: 'CHANGE_STEP', payload: +e.target.value });
+  };
 
   return (
     <div className={s.flexContainer}>
