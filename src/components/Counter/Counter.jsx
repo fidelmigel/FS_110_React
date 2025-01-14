@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import s from './Counter.module.css';
+import { changeStep, decrement, increment, reset } from '../../redux/counter/actions';
 
 export const Counter = () => {
   const dispatch = useDispatch();
@@ -7,16 +8,19 @@ export const Counter = () => {
   const step = useSelector(state => state.counter.step);
 
   const handlePlusClick = () => {
-    dispatch({ type: 'INCREMENT' });
+    dispatch(increment());
   };
+
   const handleMinusClick = () => {
-    dispatch({ type: 'DECREMENT' });
+    dispatch(decrement());
   };
+
   const handleResetClick = () => {
-    dispatch({ type: 'RESET' });
+    dispatch(reset());
   };
+
   const handleChangeStep = e => {
-    dispatch({ type: 'CHANGE_STEP', payload: +e.target.value });
+    dispatch(changeStep(+e.target.value));
   };
 
   return (
