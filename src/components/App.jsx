@@ -6,7 +6,7 @@ const App = () => {
   return (
     <div>
       <Header />
-      <Counter />
+      {/* <Counter /> */}
       <TodoList />
     </div>
   );
