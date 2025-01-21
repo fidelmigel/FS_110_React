@@ -1,17 +1,22 @@
-import { useRef } from 'react';
-import { Link, Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
-import { fetchUserById } from '../../services/api';
-import { useHttp } from '../../hooks/useHttp';
+import { useRef } from "react";
+import {
+  Link,
+  Outlet,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
+import { fetchUserById } from "../../services/api";
+import { useHttp } from "../../hooks/useHttp";
 
 const UserDetails = () => {
   const { userId } = useParams();
   console.log(userId);
 
-  const [user, setUser, loading, isError] = useHttp(fetchUserById, userId);
+  const [user, loading, isError] = useHttp(fetchUserById, userId);
 
   const location = useLocation();
-
-  const goBackRef = useRef(location.state ?? '/users');
+  const goBackRef = useRef(location.state ?? "/users");
   console.log(location);
 
   const navigate = useNavigate();
@@ -23,12 +28,12 @@ const UserDetails = () => {
   if (isError) {
     return <h2>Something went wrong...</h2>;
   }
+
   return (
-    <div className='container'>
+    <div className="container">
       <h3>User details</h3>
-      {/* <button onClick={() => navigate(-1)}>Go back</button> */}
       <Link to={goBackRef.current}>Go back</Link>
-      <img src={user.image} />
+      <img src={user.image} alt={`${user.firstName} ${user.lastName}`} />
       <h2>
         {user.lastName} {user.firstName}
       </h2>
@@ -37,12 +42,11 @@ const UserDetails = () => {
       <nav>
         <ul>
           <li>
-            <Link to='info'>Info</Link>
+            <Link to="info">Info</Link>
           </li>
           <li>
-            <Link to='posts'>Posts</Link>
+            <Link to="posts">Posts</Link>
           </li>
-          {/* localhost:5173/users/5/posts */}
         </ul>
       </nav>
       <div>
@@ -51,4 +55,5 @@ const UserDetails = () => {
     </div>
   );
 };
+
 export default UserDetails;

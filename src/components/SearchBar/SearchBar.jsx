@@ -1,23 +1,30 @@
-import { Field, Form, Formik } from 'formik';
+import { Formik, Field, Form } from "formik";
 
-const SearchBar = ({ handleChangeQuery, query }) => {
-  const onSubmit = values => {
+const SearchBar = ({ handleChangeQuery }) => {
+  const onSubmit = (values, { setSubmitting }) => {
     console.log(values);
     handleChangeQuery(values.query);
+    setSubmitting(false);
   };
 
   const initialValues = {
-    query,
+    query: "",
   };
+
   return (
     <div>
       <Formik initialValues={initialValues} onSubmit={onSubmit}>
-        <Form>
-          <Field name='query' />
-          <button type='submit'>Search</button>
-        </Form>
+        {({ isSubmitting }) => (
+          <Form>
+            <Field name="query" />
+            <button type="submit" disabled={isSubmitting}>
+              Search
+            </button>
+          </Form>
+        )}
       </Formik>
     </div>
   );
 };
+
 export default SearchBar;
